@@ -1,0 +1,13 @@
+dist: trusty
+sudo: required
+
+language: php
+
+php:
+    - 5.6
+    - 7.0
+
+install:
+    - composer install --optimize-autoloader --prefer-dist --no-scripts
+
+script: vendor/bin/phpspec run -f pretty
