@@ -9,7 +9,7 @@ use Rezzza\DomainEvent\Domain\ChangeTracker;
 abstract class ORMAggregateRootRepository extends ORMRepository
 {
     /** @var ChangeTracker */
-    protected $changeTracker;
+    private $changeTracker;
 
     /**
      * @param ManagerRegistry $doctrine
