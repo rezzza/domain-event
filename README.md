@@ -27,7 +27,7 @@ class ORMVoucherRepository extends ORMAggregateRootRepository implements Voucher
     {
         $this->getManager()->persist($voucher);
         $this->getManager()->flush();
-        $this->changeTracker->track($voucher);
+        $this->track($voucher);
     }
 }
 
