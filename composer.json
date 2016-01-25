@@ -1,0 +1,31 @@
+{
+    "name": "rezzza/domain-event",
+    "description": "Help apps to be more domain event friendly",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "RezZza Team",
+            "email": "dev@verylastroom.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Rezzza\\DomainEvent\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Rezzza\\DomainEvent\\Tests\\": "tests/" }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.5.9",
+        "psr/log": "^1.0"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "^2.4"
+    },
+    "suggest": {
+        "doctrine/common": "To use ORMRepository",
+        "symfony/event-dispatcher": "To use SymfonyEventBus",
+        "ext-redis": "To use Redis capabilities"
+    }
+}

@@ -1,0 +1,4 @@
+suites:
+    bic:
+        namespace: Rezzza\DomainEvent
+        psr4_prefix: Rezzza\DomainEvent
