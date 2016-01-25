@@ -2,7 +2,7 @@
 
 namespace Rezzza\DomainEvent\Infra\Messaging\Redis;
 
-use Api\Common\Domain\Event\EventJsonSerializable;
+use Rezzza\DomainEvent\Domain\EventJsonSerializable;
 
 abstract class RedisEventListener
 {
