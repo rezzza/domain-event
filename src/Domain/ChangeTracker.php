@@ -13,10 +13,11 @@ class ChangeTracker
 
     public function track(AggregateRoot $aggregateRoot)
     {
-        foreach ($aggregateRoot->getChanges() as $event) {
+        $recordedChanges = $aggregateRoot->getChanges();
+        $aggregateRoot->clearChanges();
+
+        foreach ($recordedChanges as $event) {
             $this->eventBus->publish($event);
         }
-
-        $aggregateRoot->clearChanges();
     }
 }
