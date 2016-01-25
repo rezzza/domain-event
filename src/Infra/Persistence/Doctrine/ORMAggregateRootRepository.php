@@ -1,6 +1,6 @@
 <?php
 
-namespace Rezzza\DomainEvent\Infra\Persistence;
+namespace Rezzza\DomainEvent\Infra\Persistence\Doctrine;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Rezzza\DomainEvent\Domain\AggregateRoot;
