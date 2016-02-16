@@ -24,7 +24,7 @@ abstract class ORMRepository
 
     protected function getManager()
     {
-        return $this->doctrine->getManager();
+        return $this->doctrine->getManagerForClass($this->entityClassName);
     }
 
     /**
