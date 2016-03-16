@@ -40,3 +40,6 @@ $changeTracker = new ChangeTracker(
     )
 );
 ```
+
+# EventDispatcher debug
+To debug your own event dispatcher with Symfony, we add a CLI for you. You should register it as a service and use the `--service-id` option.
