@@ -26,6 +26,7 @@
     "suggest": {
         "doctrine/common": "To use ORMRepository",
         "symfony/event-dispatcher": "To use SymfonyEventBus",
+        "symfony/framework-bundle": "To use EventDispatcherDebugCommand",
         "ext-redis": "To use Redis capabilities"
     }
 }
