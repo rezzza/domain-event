@@ -2,41 +2,45 @@ Library to help our apps to be domain event friendly without using EventStore at
 
 [![Build Status](https://travis-ci.com/rezzza/domain-event.svg?token=bs6eRqVZF8vUF7BaW6xL&branch=master)](https://travis-ci.com/rezzza/domain-event)
 
-# Exemple
+# Example
+
+[See detailled quickstart](examples/quickstart.php)
+
+To run example
+```
+php examples/redis-worker.php
+php examples/quickstart.php
+```
+
+In a fullstack way the best option is to track change in your repository
 
 ```php
-
-class Voucher implements AggregateRoot
+class ORMBookingRepository extends ORMAggregateRootRepository implements VoucherRepository
 {
-    use TracksChanges;
-
-    public function refund()
+    public function find($bookingId)
     {
-        $this->recordChange(VoucherRefunded($this->id));
-    }
-}
-
-class ORMVoucherRepository extends ORMAggregateRootRepository implements VoucherRepository
-{
-    public function find($voucherId)
-    {
-        $this->getInternalRepository->find($voucherId)
+        $this->getInternalRepository->find($bookingId)
     }
 
-    public function save(Voucher $voucher)
+    public function save(Booking $booking)
     {
-        $this->getManager()->persist($voucher);
+        $this->getManager()->persist($booking);
         $this->getManager()->flush();
-        $this->track($voucher);
+        $this->track($booking);
     }
 }
 
-$changeTracker = new ChangeTracker(
-    new LoggerEventBus(
-        new CompositeEventBus([
-            new SymfonyEventBus($eventDispatcher),
-            new RedisEventBus($redis, 'voucher')
-        ])
+$repository = new ORMVoucherRepository(
+    new ManagerRegistry,
+    'My\FQCN\Booking',
+    new ChangeTracker(
+        new LoggerEventBus(
+            $logger,
+            new CompositeEventBus([
+                new SymfonyEventBus($eventDispatcher),
+                new RedisEventBus($redis, 'booking')
+            ])
+        )
     )
 );
 ```
