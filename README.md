@@ -1,6 +1,6 @@
 Library to help our apps to be domain event friendly without using EventStore at first.
 
-[![Build Status](https://travis-ci.com/rezzza/domain-event.svg?token=bs6eRqVZF8vUF7BaW6xL&branch=master)](https://travis-ci.com/rezzza/domain-event)
+[![Build Status](https://travis-ci.org/rezzza/domain-event.svg?branch=master)](https://travis-ci.org/rezzza/domain-event)
 
 # Example
 
