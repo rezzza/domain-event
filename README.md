@@ -2,6 +2,15 @@ Library to help our apps to be domain event friendly without using EventStore at
 
 [![Build Status](https://travis-ci.org/rezzza/domain-event.svg?branch=master)](https://travis-ci.org/rezzza/domain-event)
 
+# Why ?
+
+Because we did not find any library that deal with events in an asynchronous way without EventStore. And domain events are helpful even without EventStore, to start defining boundaries between your bounded contexts.
+
+# Supported event buses
+
+- Symfony Event dispatcher : sync
+- Redis : async
+
 # Example
 
 [See detailled quickstart](examples/quickstart.php)
