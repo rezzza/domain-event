@@ -24,7 +24,7 @@ php examples/quickstart.php
 In a fullstack way the best option is to track change in your repository
 
 ```php
-class ORMBookingRepository extends ORMAggregateRootRepository implements VoucherRepository
+class ORMBookingRepository extends ORMAggregateRootRepository implements BookingRepository
 {
     public function find($bookingId)
     {
@@ -39,7 +39,7 @@ class ORMBookingRepository extends ORMAggregateRootRepository implements Voucher
     }
 }
 
-$repository = new ORMVoucherRepository(
+$repository = new ORMBookingRepository(
     new ManagerRegistry,
     'My\FQCN\Booking',
     new ChangeTracker(
